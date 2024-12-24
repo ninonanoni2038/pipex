@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ninomiyakei <ninomiyakei@student.42.fr>    +#+  +:+       +#+        */
+/*   By: ninomiyasatoshi <ninomiyasatoshi@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 18:37:28 by ninomiyakei       #+#    #+#             */
-/*   Updated: 2024/11/26 19:06:02 by ninomiyakei      ###   ########.fr       */
+/*   Updated: 2024/12/24 13:30:15 by ninomiyasat      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,32 @@ char	*ft_strncpy(char *dest, const char *src, size_t n)
 		i++;
 	}
 	return (dest);
+}
+
+char	*get_next_line(int fd)
+{
+	char	*line;
+	char	buffer;
+	int		i;
+	int		read_bytes;
+
+	line = (char *)malloc(10000);
+	if (!line)
+		return (NULL);
+	i = 0;
+	read_bytes = read(fd, &buffer, 1);
+	while (read_bytes > 0)
+	{
+		line[i++] = buffer;
+		if (buffer == '\n')
+			break ;
+		read_bytes = read(fd, &buffer, 1);
+	}
+	line[i] = '\0';
+	if (read_bytes <= 0 && i == 0)
+	{
+		free(line);
+		return (NULL);
+	}
+	return (line);
 }

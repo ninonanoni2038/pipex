@@ -8,12 +8,19 @@ SRCS = src/count_command.c \
 	   src/split_utils.c \
 	   src/utils.c
 BONUS_SRCS = src/count_command.c \
+			 src/error_handling.c \
+			 src/execute_bonus.c \
 			 src/execute.c \
+			 src/handle_bonus.c \
 			 src/main_bonus.c \
+			 src/pipex_multi_bonus.c \
+			 src/pipex_utils_bonus.c \
+			 src/redirect_utils_bonus.c \
 			 src/resolve.c \
 			 src/split_command.c \
 			 src/split_utils.c \
-			 src/utils.c 
+			 src/utils.c  \
+			 src/wait_process_bonus.c
 
 OBJS = $(SRCS:src/%.c=obj/%.o)
 BONUS_OBJS = $(BONUS_SRCS:src/%.c=obj/%.o)

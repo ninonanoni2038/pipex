@@ -1,37 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_bonus.c                                       :+:      :+:    :+:   */
+/*   error_handling.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ninomiyasatoshi <ninomiyasatoshi@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 17:14:04 by ninomiyakei       #+#    #+#             */
-/*   Updated: 2024/12/24 13:29:17 by ninomiyasat      ###   ########.fr       */
+/*   Created: 2024/12/24 13:20:07 by ninomiyasat       #+#    #+#             */
+/*   Updated: 2024/12/24 13:29:56 by ninomiyasat      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-int	main(int argc, char **argv, char **envp)
+void	ft_printstr(const char *str)
 {
-	t_pipex	pipex;
+	while (*str)
+		write(2, str++, 1);
+}
 
-	if (argc >= 5)
+void	print_error(int exit_code, const char *fmt, ...)
+{
+	va_list	args;
+	char	*str;
+	char	*ptr;
+
+	va_start(args, fmt);
+	ptr = (char *)fmt;
+	while (*ptr)
 	{
-		pipex.argc = argc;
-		pipex.argv = argv;
-		pipex.envp = envp;
-		if (ft_strncmp(argv[1], "here_doc", 8) == 0)
+		if (*ptr == '%')
 		{
-			if (argc < 6)
-				print_error(1,
-					"Usage: ./pipex here_doc LIMITER cmd1 cmd2 ... outfile\n");
-			pipex_multi_here_doc(&pipex);
+			ptr++;
+			if (*ptr == 's')
+			{
+				str = va_arg(args, char *);
+				if (str)
+					ft_printstr(str);
+			}
 		}
 		else
-			pipex_multi(&pipex);
+			write(2, ptr, 1);
+		ptr++;
 	}
-	else
-		print_error(1, "Usage: ./pipex file1 cmd1 cmd2 ... file2\n");
-	return (0);
+	va_end(args);
+	exit(exit_code);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ninomiyakei <ninomiyakei@student.42.fr>    +#+  +:+       +#+        */
+/*   By: ninomiyasatoshi <ninomiyasatoshi@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 17:14:04 by ninomiyakei       #+#    #+#             */
-/*   Updated: 2024/11/26 18:37:26 by ninomiyakei      ###   ########.fr       */
+/*   Updated: 2024/12/24 11:52:06 by ninomiyasat      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

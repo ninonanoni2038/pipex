@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   count_command.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ninomiyakei <ninomiyakei@student.42.fr>    +#+  +:+       +#+        */
+/*   By: ninomiyasatoshi <ninomiyasatoshi@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 18:38:50 by ninomiyakei       #+#    #+#             */
-/*   Updated: 2024/11/26 19:04:52 by ninomiyakei      ###   ########.fr       */
+/*   Updated: 2024/12/24 11:51:56 by ninomiyasat      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
